@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style media="screen">
+        body {}
+
+        .table {
+            color: black;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 20%;
+            left: 50%;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+        }
+
+        .modal-dialog {
+            color: black;
+            background-color: rgba(255, 255, 255, 0.13);
+            transform: translate(-50%, -50%);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+            padding: 50px 35px;
+        }
+
+        .modal-content {
+            background-color: rgba(255, 255, 255, 0.13);
+        }
+
+        .text-center {
+            margin-top: 20px;
+        }
+
+        .table {
+            width: 60%;
+            margin-top: 30px;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="text-center">
+        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Thêm sach
+        </button>
+    </div>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 " id="staticBackdropLabel">Thêm sach</h1>
+                    <button type="button" class="btn-close btn btn-dark" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="add_nv" method="get">
+                        <label for="name" class="form-label">Tên sach:</label>
+                        <input type="text" class="form-control" name="tennv" id="name">
+                        <label for="price" class="form-label">gia:</label>
+                        <input type="number" class="form-control" name="gia" id="price">
+                        <label for="author" class="form-label">tac gia:</label>
+                        <input type="text" class="form-control" name="tacgia" id="author">
+                        <label for="publisher" class="form-label">nha xuat ban:</label>
+                        <input type="text" class="form-control" name="nhaxuatban" id="publisher">
+                        <div class="modal-footer">
+                            <input type="button" class="btn btn-dark" data-bs-dismiss="modal" value="cancel"></button>
+                            <input type="submit" class="btn btn-dark" value="xac nhan"></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">STT</th>
+                <th scope="col">Tên</th>
+                <th scope="col">gias</th>
+                <th scope="col">tác giả</th>
+                <th scope="col">nha xuất bản </th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{!-- {{#each dataNV}}
+            <tr>
+                <th scope="row">{{@index}}</th>
+                <td>{{ten}}</td>
+                <td>{{gia}}</td>
+                <td>{{tacgia}}</td>
+                <td>{{nhaxuatban}}</td>
+                <td>
+                    <div class="modal-footer">
+                        <form method="get" action="up_nv">
+                            <button name="idEdit" value={{_id}} class="btn btn-dark" type="submit">Sửa</button>
+                        </form>
+                        <form method="get" action="delete_nv">
+                            <button name="idNV" value={{_id}} class="btn btn-dark" type="submit"
+                                onclick="return confirm('Bạn có chắc chắn muốn xóa nhân viên này?')">Xóa</button>
+                        </form>
+                </td>
+            </tr> --}}
+            {{!-- {{/each}} --}}
+            <tr>
+                <th scope="row">1</th>
+                <td>abc</td>
+                <td>12.0000</td>
+                <td>ông a</td>
+                <td>nsb a</td>
+                <td>
+                    <div class="modal-footer">
+                        <form method="get" action="up_nv">
+                            <button name="idEdit" value={{_id}} class="btn btn-outline-dark" type="submit">Sửa</button>
+                        </form>
+                        <form method="get" action="delete_nv">
+                            <button name="idNV" value={{_id}} class="btn btn-dark" type="submit"
+                                onclick="return confirm('Bạn có chắc chắn muốn xóa nhân viên này?')">Xóa</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
