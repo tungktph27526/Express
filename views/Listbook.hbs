@@ -63,11 +63,11 @@
                         aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="add_nv" method="get">
-                        <label for="name" class="form-label">Tên sach:</label>
-                        <input type="text" class="form-control" name="tennv" id="name">
-                        <label for="price" class="form-label">gia:</label>
-                        <input type="number" class="form-control" name="gia" id="price">
+                    <form action="book" method="post">
+                        <label for="isbn" class="form-label">ma sach:</label>
+                        <input type="text" class="form-control" name="tennv" id="isbn">
+                        <label for="tile" class="form-label">tieu de:</label>
+                        <input type="text" class="form-control" name="gia" id="title">
                         <label for="author" class="form-label">tac gia:</label>
                         <input type="text" class="form-control" name="tacgia" id="author">
                         <label for="publisher" class="form-label">nha xuat ban:</label>
@@ -85,39 +85,21 @@
         <thead class="thead-dark">
             <tr>
                 <th scope="col">STT</th>
-                <th scope="col">Tên</th>
-                <th scope="col">gias</th>
+                <th scope="col">ma sach</th>
+                <th scope="col">tieu de</th>
                 <th scope="col">tác giả</th>
                 <th scope="col">nha xuất bản </th>
                 <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
-            {{!-- {{#each dataNV}}
-            <tr>
-                <th scope="row">{{@index}}</th>
-                <td>{{ten}}</td>
-                <td>{{gia}}</td>
-                <td>{{tacgia}}</td>
-                <td>{{nhaxuatban}}</td>
-                <td>
-                    <div class="modal-footer">
-                        <form method="get" action="up_nv">
-                            <button name="idEdit" value={{_id}} class="btn btn-dark" type="submit">Sửa</button>
-                        </form>
-                        <form method="get" action="delete_nv">
-                            <button name="idNV" value={{_id}} class="btn btn-dark" type="submit"
-                                onclick="return confirm('Bạn có chắc chắn muốn xóa nhân viên này?')">Xóa</button>
-                        </form>
-                </td>
-            </tr> --}}
-            {{!-- {{/each}} --}}
+             {{#each databooks}}
             <tr>
                 <th scope="row">1</th>
-                <td>abc</td>
-                <td>12.0000</td>
-                <td>ông a</td>
-                <td>nsb a</td>
+                <td>{{isbn}}</td>
+                <td>{{tile}}</td>
+                <td>{{author}}</td>
+                <td>{{publisher}}</td>
                 <td>
                     <div class="modal-footer">
                         <form method="get" action="up_nv">
@@ -130,6 +112,7 @@
                     </div>
                 </td>
             </tr>
+             {{/each}}
         </tbody>
     </table>
 </body>
